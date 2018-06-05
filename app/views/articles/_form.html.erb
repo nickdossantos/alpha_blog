@@ -1,0 +1,22 @@
+<% if @article.errors.any? %>
+  <h2> The following errors prevented the article from being saved</h2>
+  <%= @article.errors.full_messages.each do |msg|%>
+  <li>
+    <ul><%= msg %></ul>
+  </li>
+  <%end%>
+<%end%>
+
+<%= form_for @article do |f| %>
+<p>
+  <%= f.label :title%></br>
+  <%= f.text_field :title%></br>
+</p>
+
+<p>
+  <%= f.label :description%></br>
+  <%= f.text_area :description%></br>
+</p>
+
+<%=f.submit %>
+<%end%>
